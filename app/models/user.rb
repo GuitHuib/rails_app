@@ -7,30 +7,31 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
 
   class << self
-    # returns hash digest of given string
+    # Returns hash digest of given string
     def digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                     BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
 
-    # returns random token
+    # Returns random token
     def new_token
       SecureRandom.urlsafe_base64
     end
   end
 
-  # sets remember_digest to token hash
+  # Sets remember_digest to token hash
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
     remember_digest
   end
 
+  # Returns remember digest or sets new one
   def session_token
     remember_digest || remember
   end
@@ -41,6 +42,7 @@ class User < ApplicationRecord
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+  # Clears remember digest
   def forget
     update_attribute(:remember_digest, nil)
   end

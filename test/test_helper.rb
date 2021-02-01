@@ -12,10 +12,12 @@ class ActiveSupport::TestCase
   fixtures :all
   include ApplicationHelper
 
+  # Returns true if session user id is not nil
   def is_logged_in?
     !session[:user_id].nil?
   end
 
+  # Set session user id
   def log_in_as(user)
     session[:user_id] = user.id
   end
@@ -23,6 +25,7 @@ end
 
 class ActionDispatch::IntegrationTest
 
+  # Sets session user id in integration tests
   def log_in_as(user, password: 'password', remember_me: '1')
     post login_path, params: { session: { email: user.email,
                                           password: password,
