@@ -1,0 +1,53 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Tuesday:
+  content: "We are recording on Tuesday"
+  created_at: <%= 10.minutes.ago %>
+  user: michael
+
+Shipping:
+  content: "Our gear still has not arrived!"
+  created_at: <%= 1.hour.ago %>
+  user: michael
+
+Game:
+  content: "We have to postpone our game tonight"
+  created_at: <%= 2.days.ago %>
+  user: michael
+
+Aranado:
+  content: "The cards got Aranado!"
+  created_at: <%= 1.week.ago %>
+  user: michael
+
+most_recent:
+  content: "This is the most recent post"
+  created_at: <%= Time.zone.now %>
+  user: michael
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 37.days.ago %>
+  user: michael
+
+Nott:
+  content: "oh, there's no comma, I'm just, Nott the brave"
+  created_at: <%= 2.years.ago %>
+  user: ryan
+
+Jester:
+  content: "Have you read Tusk Love?"
+  created_at: <%= 6.months.ago %>
+  user: ryan
+
+bard:
+  content: "I'll bet you smash things with your head, too!"
+  created_at: <%= 4.weeks.ago %>
+  user: zoe
+
+School:
+  content: "I got into Princeton!"
+  created_at: <%= 5.hours.ago %>
+  user: zoe
+<% end %>

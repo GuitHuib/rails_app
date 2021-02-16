@@ -4,9 +4,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails',                   '~> 6.0.3', '>= 6.0.3.4'
-gem 'bcrypt',                  '3.1.13'
-gem 'faker',                   '2.11.0'
+gem 'rails',                      '~> 6.0.3', '>= 6.0.3.4'
+gem "image_processing",           '1.9.3'
+gem 'mini_magick',                '4.9.5'
+gem 'active_storage_validations', '0.8.9'
+gem 'bcrypt',                     '3.1.13'
+gem 'faker',                      '2.11.0'
 
 # Enable paginate
 gem 'will_paginate',           '3.3.0'
@@ -49,6 +52,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'aws-sdk-s3',  '1.87.0', require: false
 end
 
 group :test do
