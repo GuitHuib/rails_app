@@ -50,4 +50,9 @@ School:
   content: "I got into Princeton!"
   created_at: <%= 5.hours.ago %>
   user: zoe
+
+treats:
+  content: "I want salmon!"
+  created_at: <%= Time.zone.now %>
+  user: quinn
 <% end %>
