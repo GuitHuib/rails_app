@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create seed user tamplate
-User.create( name:    "Example User",
+User.create( name:    "Ryan",
              email:   "example@example.com",
              password:              "password",
              password_confirmation: "password",
